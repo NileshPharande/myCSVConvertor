@@ -12,7 +12,7 @@ var express = require("express");
 //var csvToJson = require("csvtojson");
 //var bodyParser = require("body-parser");
 var app = express();
-var port = process.env.PORT | 8000;
+var port = process.env.PORT || 8000;
 try {
 	app.get("/convert/csv/to/json", function(req, res) {
 		console.log("STRT_TIME: ", new Date());
