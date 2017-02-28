@@ -8,32 +8,33 @@
 
 
 var express = require("express");
-var request = require('request');
-var csvToJson = require("csvtojson");
+//var request = require('request');
+//var csvToJson = require("csvtojson");
 //var bodyParser = require("body-parser");
 var app = express();
-var port = process.env.PORT | 3000;
+var port = process.env.PORT | 8000;
 try {
 	app.get("/convert/csv/to/json", function(req, res) {
 		console.log("STRT_TIME: ", new Date());
-		if(!req.query.q) {
-			console.log("not received any file name in request.");
-			res.end("ERROR: not received any file name.");
-		}
-		request(req.query.q, function (error, response, body) {
-			console.log("RCVD_MSGE: ", new Date());
-			if (!error && response.statusCode == 200) {
-				csvToJson()
-				.fromString(body)
-		        .on('json',function(json) {
-				    res.write(JSON.stringify(json));
-				    //console.log("SEND_MSGE: ", new Date());
-			    }).on('done',function() {
-				    console.log("END__MSGE: ", new Date());
-			        res.end();
-			    });
-			}
-		});
+		res.end("Hello from path.");
+		// if(!req.query.q) {
+		// 	console.log("not received any file name in request.");
+		// 	res.end("ERROR: not received any file name.");
+		// }
+		// request(req.query.q, function (error, response, body) {
+		// 	console.log("RCVD_MSGE: ", new Date());
+		// 	if (!error && response.statusCode == 200) {
+		// 		csvToJson()
+		// 		.fromString(body)
+		//         .on('json',function(json) {
+		// 		    res.write(JSON.stringify(json));
+		// 		    //console.log("SEND_MSGE: ", new Date());
+		// 	    }).on('done',function() {
+		// 		    console.log("END__MSGE: ", new Date());
+		// 	        res.end();
+		// 	    });
+		// 	}
+		// });
 	});
 	app.get("/", function(req, res) {
 		res.end("Hello from Rooot.");
