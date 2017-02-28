@@ -30,7 +30,7 @@ try {
 				    //console.log("SEND_MSGE: ", new Date());
 			    }).on('done',function() {
 				    console.log("END__MSGE: ", new Date());
-			        res.end("Hello world: "+ count);
+			        res.end();
 			    });
 			}
 		});
