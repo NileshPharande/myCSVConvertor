@@ -60,7 +60,7 @@ app.get("/convert/csv/to/json", function(req, res) {
 });
 // API fpr root request.
 app.get("/", function(req, res) {
-	res.status(200).end({"message":"Application is working, all set to use"});
+	res.status(200).json({"message":"Application is working, all set to use"});
 });
 
 // server start listening on available port.
